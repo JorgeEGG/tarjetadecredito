@@ -4,17 +4,20 @@ public class Principal {
     public static void main(String[] args) {
         Scanner teclado = new Scanner(System.in);
 
-        System.out.print("\nIngrese cupo de la tarjeta: ");
+        System.out.printf("\nIngresa tu nombre: ");
+        String nombre = teclado.next();
+        System.out.printf("\nHola %s%n", nombre);
+        System.out.print("\nIngresa el cupo de tu tarjeta: ");
         double limiteCredito = teclado.nextDouble();
 
         TarjetaDeCredito tarjeta = new TarjetaDeCredito(limiteCredito);
 
         int salir = 1;
         while (salir != 0) {
-            System.out.print("\nIngrese descripción de la compra: ");
+            System.out.print("\nIngresa la descripción de la compra: ");
             String descripcion = teclado.next();
 
-            System.out.print("Ingrese el valor de la compra: ");
+            System.out.print("Ingresa el valor de la compra: ");
             double valor = Double.valueOf(teclado.next());
 
             Compra compra = new Compra(valor, descripcion);
@@ -22,7 +25,7 @@ public class Principal {
 
             if (compraRealizada) {
                 System.out.println("¡Compra realizada!");
-                System.out.print("\nIngrese 0 para salir o 1 para continuar:");
+                System.out.print("\nIngresa 0 para salir o 1 para continuar:");
                 salir = teclado.nextInt();
             } else {
                 System.out.println("\n¡Saldo insuficiente!");
@@ -33,7 +36,7 @@ public class Principal {
         System.out.println("\n************************");
         System.out.println("COMPRAS REALIZADAS:\n");
         for (Compra compra : tarjeta.getListaDeCompras()) {
-            System.out.printf(compra.getDescripcion() + ": $%,1.2f%n", compra.getValor());
+            System.out.printf(compra.getDescripcion() + ": $%,.2f%n", compra.getValor());
         }
         System.out.println("\n************************");
         
