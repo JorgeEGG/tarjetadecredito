@@ -1,3 +1,4 @@
+import java.util.Collections;
 import java.util.Scanner;
 
 public class Principal {
@@ -18,7 +19,8 @@ public class Principal {
             String descripcion = teclado.next();
 
             System.out.print("Ingresa el valor de la compra: ");
-            double valor = Double.valueOf(teclado.next());
+            // double valor = Double.valueOf(teclado.next());   Double.valueOf convierte el String (teclado.next()) a un objeto Double, luego se asigna a double
+            double valor = teclado.nextDouble();    // Esta línea de código es recomendada por chat copilot. Es más simple yeficiente para leer números decimales del teclado
 
             Compra compra = new Compra(valor, descripcion);
             boolean compraRealizada = tarjeta.lanzarCompra(compra);
@@ -35,6 +37,7 @@ public class Principal {
 
         System.out.println("\n************************");
         System.out.println("COMPRAS REALIZADAS:\n");
+        Collections.sort(tarjeta.getListaDeCompras());
         for (Compra compra : tarjeta.getListaDeCompras()) {
             System.out.printf(compra.getDescripcion() + ": $%,.2f%n", compra.getValor());
         }

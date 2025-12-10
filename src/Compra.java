@@ -1,4 +1,4 @@
-public class Compra {
+public class Compra implements Comparable<Compra> {
 
     private double valor;
     private String descripcion;
@@ -21,6 +21,10 @@ public class Compra {
         return "Compra: valor=" + valor + ", descripcion=" + descripcion;
     }
 
-    
+    @Override
+    public int compareTo(Compra otraCompra) {
+        // return Double.compare(this.valor, otraCompra.valor); Esta línea de código fue dada por chat copilot para corregir el error
+        return Double.valueOf(this.valor).compareTo(Double.valueOf(otraCompra.getValor()));
+    }
 
 }
