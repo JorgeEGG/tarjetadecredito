@@ -3,12 +3,14 @@ import java.util.Scanner;
 public class Principal {
     public static void main(String[] args) {
         Scanner teclado = new Scanner(System.in);
+
         System.out.print("\nIngrese cupo de la tarjeta: ");
         double limiteCredito = teclado.nextDouble();
+
         TarjetaDeCredito tarjeta = new TarjetaDeCredito(limiteCredito);
 
         int salir = 1;
-        while(salir != 0){
+        while (salir != 0) {
             System.out.print("\nIngrese descripción de la compra: ");
             String descripcion = teclado.next();
 
@@ -34,6 +36,7 @@ public class Principal {
             System.out.printf(compra.getDescripcion() + ": $%,1.2f%n", compra.getValor());
         }
         System.out.println("\n************************");
+        
         System.out.printf("\nSaldo de la tarjeta: $%,.2f%n \n", tarjeta.getSaldoActual());
     }
 }
