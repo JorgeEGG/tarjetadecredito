@@ -44,5 +44,7 @@ public class Principal {
         System.out.println("\n************************");
         
         System.out.printf("\nSaldo de la tarjeta: $%,.2f%n \n", tarjeta.getSaldoActual());
+
+        teclado.close();
     }
 }
